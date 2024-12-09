@@ -10,14 +10,20 @@ It seems like the goal of the program is just to multiply some numbers. It does 
 
 However, because the program's memory has been corrupted, there are also many invalid characters that should be ignored, even if they look like part of a mul instruction. Sequences like mul(4*, mul(6,9!, ?(12,34), or mul ( 2 , 4 ) do nothing.
 
-Scan the corrupted memory for uncorrupted mul instructions. What do you get if you add up all of the results of the multiplications?
+There are two further instructions you'll need to handle:
+
+* The do() instruction enables future mul instructions.
+* The don't() instruction disables future mul instructions.
+* Only the most recent do() or don't() instruction applies. At the beginning of the program, mul instructions are enabled.
 
 ## How It Works
 1. The program reads an input file containing both valid and corrupted instructions using Node's inbuilt [fs module](https://www.w3schools.com/nodejs/nodejs_filesystem.asp).
-2. It uses [regular expressions](https://www.w3schools.com/jsref/jsref_obj_regexp.asp) to identify valid `mul(X,Y)` patterns
-3. Creates three new variables to capture the destructured numbers from valid matches ("_" ignores the first value, mul; "a" extracts the first number and "b" extracts the second number)
-4. Multiplies the numbers and maintains a running total
-5. Outputs the final sum of all multiplications
+2. It inserts `do()` at the beginning of the input and `don't()` at the end of the input to correctly begin and end the program.
+3. It identifies valid chunks of code between `do()` and `don't()` statements and extracts them.
+4. It uses [regular expressions](https://www.w3schools.com/jsref/jsref_obj_regexp.asp) to identify valid `mul(X,Y)` patterns within each chunk.
+5. It creates three new variables to capture the destructured numbers from valid matches ("_" ignores the first value, mul; "a" extracts the first number and "b" extracts the second number)
+6. It multiplies the numbers and maintains a running total
+7. Outputs the final sum of all multiplications
 
 ## Usage
 1. Ensure you have Node.js installed
