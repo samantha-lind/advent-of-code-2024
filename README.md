@@ -4,6 +4,8 @@
 This repository contains my JavaScript solutions for the [Advent of Code 2024](https://adventofcode.com/2024) challenges. Each day's solution is organized in its own directory with associated tests and documentation.
 
 ## Solutions
+- [Day 1: Number Comparison](./day-one/README.md)
+- [Day 2: Number Pattern Validator](./day-two/README.md)
 - [Day 3: Multiplication Parser](./day-three/README.md)
 - [Day 4: Word Search](./day-four/README.md)
 

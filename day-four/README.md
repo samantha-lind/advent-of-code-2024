@@ -1,7 +1,7 @@
 # Word Search Solver
 
 ## Description
-A Node.js application that processes a grid of letters to find specific words ('XMAS' and 'SAMX'). The program searches horizontally, vertically, and diagonally in both directions, counting all valid occurrences of these words.
+A Node.js application that processes a grid of letters to find specific words ('XMAS' and 'SAMX' in part one, 'MAS' and 'SAM' in the shape of an X in part two). The program searches horizontally, vertically, and diagonally in both directions, counting all valid occurrences of these words.
 
 ## The Challenge
 You've been given a grid of letters, and your task is to find all occurrences of the words 'XMAS' and 'SAMX'. These words can appear:
@@ -13,6 +13,7 @@ You've been given a grid of letters, and your task is to find all occurrences of
 The same letter can be used in multiple words, and words can overlap. The search is case-insensitive.
 
 ## How It Works
+### Part One
 1. The program reads an input grid using Node's inbuilt [fs module](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
 2. It processes the input into a 2D array of characters
 3. Uses [regular expressions](https://www.w3schools.com/jsref/jsref_obj_regexp.asp) to find matching patterns
@@ -22,6 +23,12 @@ The same letter can be used in multiple words, and words can overlap. The search
    - Diagonal (left to right)
    - Diagonal (right to left)
 5. Returns the total count of all matches found
+
+### Part Two
+1. The program reads an input grid using Node's inbuilt [fs module](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
+2. It processes the input into a 2D array of characters
+3. Checks each row for the 'MAS' pattern in the shape of an X, by checking the rows above and below the current row
+4. Returns the total count of all matches found
 
 ## Usage
 1. Ensure you have Node.js installed
