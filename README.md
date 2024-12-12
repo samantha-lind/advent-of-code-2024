@@ -8,6 +8,7 @@ This repository contains my JavaScript solutions for the [Advent of Code 2024](h
 - [Day 2: Number Pattern Validator](./day-two/README.md)
 - [Day 3: Multiplication Parser](./day-three/README.md)
 - [Day 4: Word Search](./day-four/README.md)
+- [Day 5: Number Sorting](./day-five/README.md)
 
 ## Getting Started
 
