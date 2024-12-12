@@ -15,20 +15,13 @@ rules = rules.map(rule => rule.split('|').map(Number))
 function checkRules(rule, page) {
   const [index1, index2] = [page.indexOf(rule[0]), page.indexOf(rule[1])]
   if (index1 !== -1 && index2 !== -1 && index1 > index2) {
-    correctPage(rule, page)
+    // Move the number at index2 to the end of the array
+    page.splice(index2, 1)
+    page.push(rule[1])
+    if (rules.every(rule => checkRules(rule, page)[0])) incorrectPages.push(page)
     return [false]
   }
   return [true]
-}
-
-// Correct pages are pages that contain the numbers in the rule in the incorrect order
-function correctPage(rule, page) {
-  const [index2] = [page.indexOf(rule[1])]
-  // Move number2 to the end of the array
-  page.splice(index2, 1)
-  page.push(rule[1])
-
-  if (rules.every(rule => checkRules(rule, page)[0])) incorrectPages.push(page)
 }
 
 // Push correct pages to correctPages array
